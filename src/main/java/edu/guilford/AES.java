@@ -14,11 +14,16 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AES {
 
+     // Encrypts a string using AES with a secret key
+    // Returns a string that is the Base64 encoding of the encrypted string
     private static SecretKeySpec secretKey;
     private static byte[] key;
 
     public static void setKey(String myKey) {
         MessageDigest sha = null;
+    /**
+     * @param myKey
+     */
         try {
             key = myKey.getBytes("UTF-8");
             sha = MessageDigest.getInstance("SHA-1");
@@ -31,9 +36,11 @@ public class AES {
             e.printStackTrace();
         }
     }
-    // Encrypt the string using AES algorithm
-    // The encryed string is retruned if null 
+   
+    // Encrypted string is returned as null if an error occurs
 
+
+    // create a method to encrypt the password
     public static String encrypt(String strToEncrypt, String secret) {
         try {
             setKey(secret);
@@ -45,6 +52,8 @@ public class AES {
         }
         return null;
     }
+
+
 
     //create a method to decrypt the password 
     public static String decrypt(String strToDecrypt, String secret) {
