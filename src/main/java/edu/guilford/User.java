@@ -14,7 +14,7 @@ public class User {
  private String password;
 
  // constructor
- public passwordGenerator(String firstName, String lastName, String email, String petName, String favColor, String birthday) {
+ public User(String firstName, String lastName, String email, String petName, String favColor, String birthday) {
 
      this.firstName = firstName;
      this.lastName = lastName;
@@ -25,6 +25,9 @@ public class User {
      this.password = petName.substring(0,2) + favColor.substring(0,2) + birthday.substring(0,2);
  }
     
+ public User() {
+    
+ }
     public String createPassword() {
         String password = firstName.substring(0,2) + lastName.substring(0,2) + email.substring(0,2) + petName.substring(0,2) + favColor.substring(0,2) + birthday.substring(0,2);
         return password;
